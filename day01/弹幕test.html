@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="lib/vue-2.4.0.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="button" value="骚起来" @click="go" />
+      <input type="button" value="停止你的行为" @click="stop" />
+      <p>{{ msg }}</p>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          msg: "套马杆滴汉子你威武雄壮，奔驰的骏马像利马一样~",
+          startTimeId: null,
+          i:1
+        },
+        methods: {
+          go() {
+            // alert ("利说利马呢")
+            // console.log(123)
+            clearInterval(this.startTimeId)
+            this.startTimeId = setInterval(() => {
+              let start = this.msg.substring(0, 1);
+              let end = this.msg.substring(1);
+              this.msg = end + start;
+              console.log(this.msg,this.i++);
+            }, 50);
+          },
+          stop() {
+            clearInterval(this.startTimeId);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
