@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="lib/vue-2.4.0.js"></script>
+  </head>
+  <body>
+    <div id="app">
+        <input type="button" value="切换" @click="flag=!flag">
+        <!-- v-if会删除DOM树属性，频繁使用会占用大量性能 -->
+        <h1 v-if="flag" >这是一个v-if所控制的属性</h1>
+        <!-- v-show会将属性隐藏起来，适合频繁使用环境 -->
+        <h1 v-show="flag" >这是一个v-show所控制的属性</h1>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+            flag: true
+        },
+        methods: {}
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="lib/vue-2.4.0.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="button" value="骚起来" @click="go" />
+      <input type="button" value="停止你的行为" @click="stop"/>
+      <p>{{ msg }}</p>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          msg: "你是有什么毛病？？？？？？",
+          startTimeId: null
+        },
+        methods: {
+          go() {
+            clearInterval(this.startTimeId)
+            this.startTimeId = setInterval(() => {
+              let start = this.msg.substring(1);
+              let end = this.msg.substring(0, 1);
+              this.msg = start + end;
+              console.log(start, end);
+            },50);
+          },
+          stop() {
+              clearInterval(this.startTimeId)
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
