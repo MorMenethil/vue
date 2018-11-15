@@ -22,7 +22,7 @@
         <transition
           @before-enter="beforeEnter"
           @enter="enter"
-          @ofter-enter="afterEnter">
+          @after-enter="afterEnter">
             <div class="ball" v-show="flag"></div>
         </transition>
     </div>
@@ -38,14 +38,21 @@
             beforeEnter(el) {
                 // beforeEnter 表示动画入场之前，此时，动画尚未开始，可以在beforeEnter中，设置元素开始动画之前的起始样式
                 // 设置小球开始动画之前的起始位置
+                el.style.transform = "translate(0,0)"
             },
-            enter(el) {
+            enter(el,done) {
                 // 这句话，没有实际的作用，但是，如果不写，出不来动画效果；
+                el.offsetWidth
                 // 可以认为 el.offsetWidth 会强制动画刷新
+                el.style.transform = "translate(200px,200px)"
+                el.style.transition = "all 1s ease"
+                // 这里的 done，起始就是afterEnter这个函数，也就是说：done是afterEnter函数的引用
+                done()
             },
             afterEnter(el) {
                 // 动画完成之后，会调用afterEnter
-                console.log('ok')
+                this.flag = !this.flag
+                
             }
         }
       });
