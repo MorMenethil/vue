@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> 
+    <!-- 注意: 不推荐在这里引用任何包和任何css文件(会造成多次请求) -->
+
+    <!-- main中的代码涉及到了ES6语法,浏览器不识别 -->
+    <!-- <script src="./main.js"></script> -->
+    <!-- 通过webpack前端构建工具处理并生成一个新的文件 -->
+    <!-- <script src="../dist/bundle.js"></script> -->
+
+    <!-- 当使用 html-webpack-plugin 之后,我们不在需要手动处理 bundle.js 的引用路径了,因为这个插件已经自动创建了一个合适的 script 标签,并且引用了正确的路径 -->
+    <!-- <script src="/bundle.js"></script> -->
+</head>
+
+<body>
+    <ul>
+        <li>这是第1个li</li>
+        <li>这是第2个li</li>
+        <li>这是第3个li</li>
+        <li>这是第4个li</li>
+        <li>这是第5个li</li>
+        <li>这是第6个li</li>
+        <li>这是第7个li</li>
+        <li>这是第8个li</li>
+        <li>这是第9个li</li>
+        <li>这是第10个li</li>
+    </ul>
+</body>
+
+</html>
