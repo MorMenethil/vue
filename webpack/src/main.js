@@ -15,6 +15,17 @@ import './css/index.less'
 // 2. 打开 webpack.config.js 这个配置文件, 在里面新增一个 配置节点 叫做 module, 他是一个对象;在这个 module 对象身上,有个 rules 属性, 这个 reles 属性是个 数组;这个数组中存放了所有第三方的文件的匹配和处理规则;
 
 
+// class 关键字,是ES6中提供的新语法,是用来实现 ES6 中面向对象的编程方式
+class Person {
+    // 使用 static 关键字,可以定义静态属性
+    // 所谓的静态属性,就是可以直接通过 类名 直接访问的属性
+    // 实例属性: 只能通过类的实例,来访问的属性,叫做实例属性
+    static info = { name: 'ZS', age: 20 }
+}
+
+//访问 Person 类身上的 info 静态属性
+console.log(Person.info)
+
 // 注意: webpack 处理第三方文件类型的过程:
 // 1. 发现这个文件不是JS文件,然后去配置文件中,查找有没有对应的第三方 loader 规则
 // 2. 如果能找到对应的规则,就会调用对应的 loader 处理这种文件类型;
