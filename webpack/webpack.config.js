@@ -25,7 +25,11 @@ module.exports = {
     module: { // 这个节点用于配置所有第三方模块加载器
         rules: [ // 所有第三方模块的匹配规则
             { test:/\.css$/, use:['style-loader','css-loader'] }, // 配置处理 .css 文件的第三方loader规则
-            { test:/\.less$/, use:['style-loader','css-loader','less-loader'] } // 配置处理 .css文件的第三方 loader 规则
+            { test:/\.less$/, use:['style-loader','css-loader','less-loader'] }, // 配置处理 .css文件的第三方 loader 规则
+            { test:/\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=7631&name=[hash:8]-[name].[ext]' },  // 处理图片路径的loader
+            // limit 给定的值,是图片的大小,单位是byte,如果我们引用的图片,大于或等于给定的limit值,则不会被转为base64格式的字符串,如果图片小于给定的 limit 值,则会被转为base64的字符串
+            { test:/\.(ttf|eot|svg|woff|woff2)$/, use: 'url-loader' }, // 处理字体文件的 loader
+            { test: /\.js$/, use: 'babel-loader', exclude: /(node_modules|bower_components)/ }, // 配置babel来转换高级的ES语法
         ]
 
     }
